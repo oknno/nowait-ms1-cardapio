@@ -32,7 +32,7 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 
 import backend.mesacerta.entidades.Cardapio;
-import backend.mesacerta.persistencia.mesacertaRepository;
+import backend.mesacerta.persistencia.CardapioRepository;
 
 /**
  * Classe de testes para a entidade Cardapio.
@@ -48,15 +48,15 @@ import backend.mesacerta.persistencia.mesacertaRepository;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {PropertyPlaceholderAutoConfiguration.class, mesacertaTest.DynamoDBConfig.class})
-@TestPropertySource(locations = "file:C:/Users/fellipe/Music/projeto/credenciais_cardapio/application.properties")
+@TestPropertySource(locations = "file:C:/Users/okn/Documents/TrabalhoCruvinel/Credenciais/application.properties")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class mesacertaTest {
 
     private static Logger LOGGER = LoggerFactory.getLogger(mesacertaTest.class);
-    private SimpleDateFormat df = new SimpleDateFormat("dd/mm/yyyy");
+    private SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 	    
     @Configuration
-	@EnableDynamoDBRepositories(basePackageClasses = mesacertaRepository.class)
+	@EnableDynamoDBRepositories(basePackageClasses = CardapioRepository.class)
 	public static class DynamoDBConfig {
 
 		@Value("${amazon.aws.accesskey}")
@@ -82,7 +82,7 @@ public class mesacertaTest {
 	}
     
 	@Autowired
-	private mesacertaRepository repository;
+	private CardapioRepository repository;
 
 	@Test
 	public void teste1Criacao() throws ParseException {
