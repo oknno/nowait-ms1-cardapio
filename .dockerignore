@@ -1,0 +1,10 @@
+.git
+.gitignore
+.vscode
+.idea
+*.iml
+target/surefire-reports
+target/failsafe-reports
+logs
+tmp
+node_modules
