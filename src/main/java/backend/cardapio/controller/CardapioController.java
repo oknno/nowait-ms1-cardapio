@@ -9,7 +9,7 @@ import backend.cardapio.service.CardapioService;
 import backend.cardapio.entidades.Cardapio;
 
 @RestController
-@RequestMapping("/cardapios")
+@RequestMapping("/menu")
 public class CardapioController {
 
     private final CardapioService service;

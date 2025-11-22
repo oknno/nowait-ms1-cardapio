@@ -23,7 +23,7 @@ import backend.cardapio.persistencia.CardapioRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest   // Usa o Application + DynamoDBConfig da app principal
-@TestPropertySource(locations = "file:C:/Users/okn/Documents/TrabalhoCruvinel/Credenciais/application.properties")
+@TestPropertySource(locations = "file:C:/Users/okn/Documents/noWait/Credenciais/application.properties")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CardapioTest {
 

@@ -19,7 +19,7 @@ import io.swagger.v3.oas.annotations.info.Contact;
 @Import({DynamoDBConfig.class})
 @OpenAPIDefinition(
     info = @Info(
-        title = "MesaCerta API",
+        title = "noWait API",
         version = "1.0",
         description = "API de Reserva de Mesa e pedidos",
         license = @License(name = "Apache 2.0", url = "https://www.apache.org/licenses/LICENSE-2.0"),
@@ -33,7 +33,7 @@ public class Application {
 
     public static void main(String[] args) {
         log.info("Iniciando... Aguarde");
-        System.setProperty("server.servlet.context-path", "/mesacerta-api");
+        System.setProperty("server.servlet.context-path", "/nowait-api");
         
         new SpringApplicationBuilder(Application.class)
             .web(WebApplicationType.SERVLET)
