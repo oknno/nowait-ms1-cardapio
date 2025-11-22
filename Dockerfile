@@ -5,11 +5,10 @@ FROM eclipse-temurin:17-jre-alpine
 WORKDIR /app
 
 # Copia o JAR gerado pelo Maven para dentro do container
-COPY target/mesa-certa-1.0-SNAPSHOT.jar app.jar
+COPY target/nowait-ms1-cardapio-1.0.0-SNAPSHOT.jar app.jar
 
-# Expõe a porta 8080 (onde o Spring Boot sobe)
+# Expõe a porta 8080
 EXPOSE 8080
 
-# Ponto de entrada: roda o jar
-# OBS: Configuração externa (SPRING_CONFIG_LOCATION) vamos passar na hora do docker run
+# Ponto de entrada
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]

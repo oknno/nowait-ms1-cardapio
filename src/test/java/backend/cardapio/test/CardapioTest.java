@@ -3,8 +3,6 @@ package backend.cardapio.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.junit.FixMethodOrder;
@@ -22,13 +20,12 @@ import backend.cardapio.entidades.Cardapio;
 import backend.cardapio.persistencia.CardapioRepository;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest   // Usa o Application + DynamoDBConfig da app principal
+@SpringBootTest
 @TestPropertySource(locations = "file:C:/Users/okn/Documents/noWait/Credenciais/application.properties")
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class CardapioTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CardapioTest.class);
-    private final SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
     @Autowired
     private CardapioRepository repository;
@@ -37,25 +34,34 @@ public class CardapioTest {
     // TESTE 1 – CRIAÇÃO
     // ================================
     @Test
-    public void teste1Criacao() throws ParseException {
+    public void teste1Criacao() {
         LOGGER.info("Criando objetos...");
 
-        Cardapio c1 = new Cardapio("SANDUBA", "Sanduiche",
+        Cardapio c1 = new Cardapio(
+                "SANDUBA",
+                "Sanduiche",
                 "Sanduiche de carne com tomate, alface, pao e queijo.",
-                df.parse("30/06/2015"));
+                25.90
+        );
         repository.save(c1);
 
-        Cardapio c2 = new Cardapio("MASSA", "Pizza",
+        Cardapio c2 = new Cardapio(
+                "MASSA",
+                "Pizza",
                 "Massa fina com calabresa e molho de tomate com borda recheada de catupiry.",
-                df.parse("02/10/2017"));
+                59.90
+        );
         repository.save(c2);
 
-        Cardapio c3 = new Cardapio("REFRI", "Kuat",
+        Cardapio c3 = new Cardapio(
+                "REFRI",
+                "Kuat",
                 "Refrigerante gelado sabor guaraná.",
-                df.parse("21/09/2017"));
+                6.50
+        );
         repository.save(c3);
 
-        LOGGER.info("Pesquisando todos...");
+        LOGGER.info("Pesquisando todos os registros...");
         Iterable<Cardapio> lista = repository.findAll();
         assertNotNull(lista.iterator());
 
@@ -63,7 +69,7 @@ public class CardapioTest {
             LOGGER.info(cardapio.toString());
         }
 
-        LOGGER.info("Pesquisando objeto 'Pizza'");
+        LOGGER.info("Pesquisando objeto 'Pizza'...");
         List<Cardapio> result = repository.findByNome("Pizza");
         assertEquals(1, result.size());
         LOGGER.info("Encontrado: {}", result.get(0).getCodigo());
@@ -73,20 +79,20 @@ public class CardapioTest {
     // TESTE 2 – EXCLUSÃO
     // ================================
     @Test
-    public void teste2Exclusao() throws ParseException {
+    public void teste2Exclusao() {
         LOGGER.info("Excluindo objetos...");
 
         Iterable<Cardapio> lista = repository.findAll();
         assertNotNull(lista.iterator());
 
         for (Cardapio cardapio : lista) {
-            repository.delete(cardapio);
             LOGGER.info("Apagando {}", cardapio);
+            repository.delete(cardapio);
         }
 
         List<Cardapio> result = repository.findByNome("Pizza");
         assertEquals(0, result.size());
 
-        LOGGER.info("Exclusão feita com sucesso");
+        LOGGER.info("Exclusão finalizada com sucesso.");
     }
 }
