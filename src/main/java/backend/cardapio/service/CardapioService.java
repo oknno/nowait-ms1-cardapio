@@ -1,12 +1,12 @@
-package backend.mesa_certa.service;
+package backend.cardapio.service;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import backend.mesacerta.entidades.Cardapio;
-import backend.mesacerta.persistencia.CardapioRepository;
+import backend.cardapio.entidades.Cardapio;
+import backend.cardapio.persistencia.CardapioRepository;
 
 @Service
 public class CardapioService {

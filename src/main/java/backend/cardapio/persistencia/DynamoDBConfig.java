@@ -1,4 +1,4 @@
-package backend.mesacerta.persistencia;
+package backend.cardapio.persistencia;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

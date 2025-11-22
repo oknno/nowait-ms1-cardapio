@@ -1,12 +1,12 @@
-package backend.mesa_certa.controller;
+package backend.cardapio.controller;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import backend.mesa_certa.service.CardapioService;
-import backend.mesacerta.entidades.Cardapio;
+import backend.cardapio.service.CardapioService;
+import backend.cardapio.entidades.Cardapio;
 
 @RestController
 @RequestMapping("/cardapios")

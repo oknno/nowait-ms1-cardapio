@@ -1,4 +1,4 @@
-package backend.mesa_certa;
+package backend.cardapio;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
 
-import backend.mesacerta.persistencia.DynamoDBConfig;
+import backend.cardapio.persistencia.DynamoDBConfig;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;

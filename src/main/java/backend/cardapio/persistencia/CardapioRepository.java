@@ -1,11 +1,11 @@
-package backend.mesacerta.persistencia;
+package backend.cardapio.persistencia;
 
 import java.util.List;
 
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
 import org.springframework.data.repository.CrudRepository;
 
-import backend.mesacerta.entidades.Cardapio;
+import backend.cardapio.entidades.Cardapio;
 
 @EnableScan
 public interface CardapioRepository extends CrudRepository<Cardapio, String> {
