@@ -32,9 +32,9 @@ public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        log.info("Iniciando... Aguarde");
+        log.info("Iniciando. Aguarde");
         System.setProperty("server.servlet.context-path", "/nowait-api");
-        
+
         new SpringApplicationBuilder(Application.class)
             .web(WebApplicationType.SERVLET)
             .run(args);
