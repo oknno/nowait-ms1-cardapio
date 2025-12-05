@@ -32,11 +32,11 @@ public class Application {
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
-        log.info("Iniciando. Aguarde");
-        System.setProperty("server.servlet.context-path", "/nowait-api");
+    log.info("Iniciando. Aguarde");
+    System.setProperty("server.servlet.context-path", "/cardapio");
 
-        new SpringApplicationBuilder(Application.class)
-            .web(WebApplicationType.SERVLET)
-            .run(args);
+    new SpringApplicationBuilder(Application.class)
+        .web(WebApplicationType.SERVLET)
+        .run(args);
     }
 }
